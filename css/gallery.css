@@ -5,29 +5,36 @@
   padding: 20px 40px;
 }
 
-/* ----- BLOC IMAGE ----- */
+/* ----- BLOC D’IMAGE ----- */
 .img-wrapper {
   position: relative;
   display: inline-block;
   width: 100%;
   margin-bottom: 10px;
   overflow: hidden;
-  border-radius: 12px;
+  border-radius: 14px;
 
-  /* Ombre initiale */
-  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  /* Ombre douce multi-niveau au repos */
+  box-shadow:
+    0 1px 3px rgba(0,0,0,0.15),
+    0 4px 10px rgba(0,0,0,0.08);
 
-  /* Bordure initiale (invisible) */
   border: 2px solid transparent;
 
-  /* Transition fluide pour ombre, bordure et overlay */
-  transition: box-shadow 0.3s ease, border 0.3s ease;
+  transition:
+    box-shadow 0.35s ease,
+    border 0.35s ease;
 }
 
-/* Survol : bordure visible et ombre dynamique */
+/* Survol : ombre premium + bordure légère */
 .img-wrapper:hover {
-  border: 2px solid rgba(255, 255, 255, 0.6); /* bordure semi-transparente */
-  box-shadow: 0 12px 40px rgba(0,0,0,0.25); /* ombre dynamique */
+  border: 2px solid rgba(255, 255, 255, 0.6);
+
+  /* Ombre dynamique multilayer */
+  box-shadow:
+    0 6px 12px rgba(0,0,0,0.12),
+    0 16px 32px rgba(0,0,0,0.25),
+    0 24px 48px rgba(0,0,0,0.15);
 }
 
 /* ----- IMAGE ----- */
@@ -35,24 +42,32 @@
   width: 100%;
   display: block;
   object-fit: cover;
-  border-radius: 12px;
+  border-radius: 14px;
 
-  /* L'image reste nette */
+  /* L'image reste net, jamais transformée */
 }
 
-/* ----- SURBRILLANCE (overlay) ----- */
+/* ----- OVERLAY / SURBRILLANCE PREMIUM ----- */
 .img-wrapper::after {
   content: "";
   position: absolute;
   inset: 0;
-  background: rgba(255, 255, 255, 0); /* invisible par défaut */
-  transition: background 0.3s ease;
-  border-radius: 12px;
-  pointer-events: none; /* overlay non interactif */
+  border-radius: 14px;
+  pointer-events: none;
+
+  /* Dégradé subtil (haut lumineux → bas transparent) */
+  background: linear-gradient(
+    to bottom,
+    rgba(255, 255, 255, 0.18),
+    rgba(255, 255, 255, 0)
+  );
+
+  opacity: 0; /* invisible par défaut */
+  transition: opacity 0.35s ease;
 }
 
 .img-wrapper:hover::after {
-  background: rgba(255, 255, 255, 0.15); /* léger highlight */
+  opacity: 1; /* surbrillance élégante */
 }
 
 /* ----- RESPONSIVE ----- */
