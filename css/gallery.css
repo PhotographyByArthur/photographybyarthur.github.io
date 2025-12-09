@@ -58,7 +58,7 @@
   /* Dégradé subtil (haut lumineux → bas transparent) */
   background: linear-gradient(
     to bottom,
-    rgba(255, 255, 255, 0.18),
+    rgba(255, 255, 255, 0.35),
     rgba(255, 255, 255, 0)
   );
 
