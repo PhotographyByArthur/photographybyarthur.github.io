@@ -1,8 +1,8 @@
 [
-  { "file": "Photo1-aerien.JPG", "alt": "Cygne", "height": 280, "caption": "Grand-Est - Réserve naturelle - 2025" },
-  { "file": "Photo2-aerien.JPG", "alt": "Comoran", "height": 200, "caption": "Grand-Est - Réserve naturelle - 2025" },
-  { "file": "Photo3-aerien.JPG", "alt": "Cygne", "height": 370, "caption": "Grand-Est - Réserve naturelle - 2025" },
-  { "file": "Photo4-aerien.JPG", "alt": "Oiseau", "height": 220, "caption": "Grand-Est - Réserve naturelle - 2025" },
-  { "file": "Photo5-aerien.JPG", "alt": "Oiseau", "height": 280, "caption": "Afrique du Sud - Parc Kruger - 2024" },
-
+  { "file": "Photo1-aerien.jpg", "alt": "Vík i Myrdal", "height": 280, "caption": "Islande - Vík i Myrdal - 2025" },
+  { "file": "Photo2-aerien.jpg", "alt": "Brúarfoss", "height": 200, "caption": "Islande - Brúarfoss - 2025" },
+  { "file": "Photo3-aerien.jpg", "alt": "Viking village", "height": 370, "caption": "Islande - Viking village - 2025" },
+  { "file": "Photo4-aerien.jpg", "alt": "DC-3 Airplane wreck", "height": 220, "caption": "Islande - DC-3 Airplane wreck - 2025" },
+  { "file": "Photo5-aerien.jpg", "alt": "Château de Haut-Andlau", "height": 280, "caption": "Grand-Est - Château de Haut-Andlau - 2025" },
+  { "file": "Photo5-aerien.jpg", "alt": "Plobsheim", "height": 280, "caption": "Grand-Est - Plobsheim - 2025" },
 ]
