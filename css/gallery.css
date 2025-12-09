@@ -7,30 +7,25 @@
 
 /* ----- BLOC IMAGE ----- */
 .img-wrapper {
-  display: inline-block;
-  width: 100%;
-  margin-bottom: 10px;
   position: relative;
   overflow: hidden;
   border-radius: 12px;
-
-  /* Animation pour le zoom et l'ombre */
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-
-  /* Ombre par défaut */
-  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-
-  /* Zoom initial du bloc */
-  transform: scale(1);
-
-  /* Astuces pour réduire le flou au survol */
-  backface-visibility: hidden;
-  will-change: transform;
-  transform-style: preserve-3d; /* couche GPU séparée */
 }
 
-/* Zoom du bloc et ombre au survol */
-.img-wrapper:hover {
+/* Pseudo-bloc derrière l'image pour zoom + ombre */
+.img-wrapper::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: inherit; /* peut être remplacé par une couleur ou un gradient */
+  z-index: -1;
+  transform: scale(1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+/* Zoom du pseudo-bloc et ombre au survol */
+.img-wrapper:hover::before {
   transform: scale(1.03);
   box-shadow: 0 6px 20px rgba(0,0,0,0.2);
 }
@@ -41,11 +36,7 @@
   display: block;
   object-fit: cover;
   border-radius: 12px;
-
-  /* Image reste nette */
-  transform: scale(1);
-  backface-visibility: hidden;
-  will-change: transform;
+  /* reste complètement nette, pas de zoom ici */
 }
 
 /* ----- RESPONSIVE ----- */
