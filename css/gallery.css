@@ -1,11 +1,3 @@
-/* ----- GALERIE 4 COLONNES ----- */
-.gallery {
-  column-count: 4;
-  column-gap: 10px;
-  padding: 20px 40px;
-}
-
-/* ----- BLOC IMAGE ----- */
 .img-wrapper {
   display: inline-block;
   width: 100%;
@@ -23,34 +15,25 @@
   /* Zoom initial du bloc */
   transform: scale(1);
 
-  /* Astuces pour que l'image reste nette */
+  /* Astuces pour réduire le flou au survol */
   backface-visibility: hidden;
+  will-change: transform;
+  transform-style: preserve-3d; /* force le rendu sur une couche séparée */
 }
 
-/* Zoom du bloc et ombre au survol */
 .img-wrapper:hover {
   transform: scale(1.03); /* zoom du bloc */
   box-shadow: 0 6px 20px rgba(0,0,0,0.2);
 }
 
-/* ----- IMAGE ----- */
 .img-wrapper img {
   width: 100%;
   display: block;
   object-fit: cover;
   border-radius: 12px;
 
-  /* L'image ne zoom pas, reste nette */
+  /* L'image reste inchangée */
   transform: scale(1);
-  will-change: transform;
   backface-visibility: hidden;
-}
-
-/* ----- RESPONSIVE ----- */
-@media (max-width: 1024px) {
-  .gallery { column-count: 2; }
-}
-
-@media (max-width: 600px) {
-  .gallery { column-count: 1; }
+  will-change: transform;
 }
