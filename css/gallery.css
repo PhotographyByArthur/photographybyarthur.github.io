@@ -5,6 +5,7 @@
   padding: 20px 40px;
 }
 
+/* ----- BLOC IMAGE ----- */
 .img-wrapper {
   display: inline-block;
   width: 100%;
@@ -12,29 +13,44 @@
   position: relative;
   overflow: hidden;
   border-radius: 12px;
-  transition: box-shadow 0.3s ease;
+
+  /* Animation pour le zoom et l'ombre */
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+  /* Ombre par défaut */
   box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+
+  /* Zoom initial du bloc */
+  transform: scale(1);
+
+  /* Astuces pour que l'image reste nette */
+  backface-visibility: hidden;
 }
 
-/* Survol du bloc (ombre uniquement) */
+/* Zoom du bloc et ombre au survol */
 .img-wrapper:hover {
+  transform: scale(1.03); /* zoom du bloc */
   box-shadow: 0 6px 20px rgba(0,0,0,0.2);
 }
 
-/* Image */
+/* ----- IMAGE ----- */
 .img-wrapper img {
   width: 100%;
   display: block;
   object-fit: cover;
   border-radius: 12px;
-  transition: transform 0.3s ease;
-}
 
-/* Survol → zoom sur l'image (sans flou) */
-.img-wrapper:hover img {
-  transform: scale(1.03);
+  /* L'image ne zoom pas, reste nette */
+  transform: scale(1);
+  will-change: transform;
+  backface-visibility: hidden;
 }
 
 /* ----- RESPONSIVE ----- */
-@media (max-width: 1024px) { .gallery { column-count: 2; } }
-@media (max-width: 600px)  { .gallery { column-count: 1; } }
+@media (max-width: 1024px) {
+  .gallery { column-count: 2; }
+}
+
+@media (max-width: 600px) {
+  .gallery { column-count: 1; }
+}
