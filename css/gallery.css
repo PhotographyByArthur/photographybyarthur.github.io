@@ -12,21 +12,27 @@
   position: relative;
   overflow: hidden;
   border-radius: 12px;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  transition: box-shadow 0.3s ease;
   box-shadow: 0 4px 12px rgba(0,0,0,0.1);
 }
 
+/* Survol du bloc (ombre uniquement) */
 .img-wrapper:hover {
-  transform: scale(1.03);
   box-shadow: 0 6px 20px rgba(0,0,0,0.2);
 }
 
+/* Image */
 .img-wrapper img {
   width: 100%;
   display: block;
   object-fit: cover;
   border-radius: 12px;
   transition: transform 0.3s ease;
+}
+
+/* Survol → zoom sur l'image (sans flou) */
+.img-wrapper:hover img {
+  transform: scale(1.03);
 }
 
 /* ----- RESPONSIVE ----- */
