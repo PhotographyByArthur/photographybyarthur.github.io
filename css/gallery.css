@@ -7,10 +7,10 @@
 
 /* ----- BLOC IMAGE ----- */
 .img-wrapper {
+  position: relative;
   display: inline-block;
   width: 100%;
   margin-bottom: 10px;
-  position: relative;
   overflow: hidden;
   border-radius: 12px;
 
@@ -20,14 +20,15 @@
   /* Bordure initiale (invisible) */
   border: 2px solid transparent;
 
-  /* Transition pour ombre et bordure */
-  transition: box-shadow 0.3s ease, border 0.3s ease;
+  /* Transition pour bordure, ombre et translation */
+  transition: border 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease;
 }
 
-/* Survol : bordure visible + ombre */
+/* Survol : bordure visible, ombre plus prononcée et léger "pop" */
 .img-wrapper:hover {
-  border: 2px solid rgba(255, 255, 255, 0.6); /* bordure semi-transparente */
-  box-shadow: 0 6px 20px rgba(0,0,0,0.2);
+  border: 2px solid rgba(255, 255, 255, 0.6);
+  box-shadow: 0 10px 30px rgba(0,0,0,0.25);
+  transform: translateY(-5px); /* effet de "pop" */
 }
 
 /* ----- IMAGE ----- */
@@ -36,7 +37,21 @@
   display: block;
   object-fit: cover;
   border-radius: 12px;
-  /* aucune transformation, reste nette */
+  transition: opacity 0.3s ease; /* pour overlay */
+}
+
+/* ----- OVERLAY pour survol ----- */
+.img-wrapper::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(255, 255, 255, 0); /* invisible par défaut */
+  transition: background 0.3s ease;
+  border-radius: 12px;
+}
+
+.img-wrapper:hover::after {
+  background: rgba(255, 255, 255, 0.15); /* léger highlight */
 }
 
 /* ----- RESPONSIVE ----- */
