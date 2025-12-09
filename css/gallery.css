@@ -14,20 +14,19 @@
   overflow: hidden;
   border-radius: 12px;
 
-  /* Ombre + transition */
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  /* Ombre par défaut */
   box-shadow: 0 4px 12px rgba(0,0,0,0.1);
 
-  /* Zoom initial et astuces pour réduire le flou */
-  transform: scale(1);
-  backface-visibility: hidden;
-  transform-style: preserve-3d;
-  will-change: transform;
+  /* Bordure initiale (invisible) */
+  border: 2px solid transparent;
+
+  /* Transition pour ombre et bordure */
+  transition: box-shadow 0.3s ease, border 0.3s ease;
 }
 
-/* Zoom du bloc et ombre au survol */
+/* Survol : bordure visible + ombre */
 .img-wrapper:hover {
-  transform: scale(1.03);
+  border: 2px solid rgba(255, 255, 255, 0.6); /* bordure semi-transparente */
   box-shadow: 0 6px 20px rgba(0,0,0,0.2);
 }
 
@@ -37,11 +36,7 @@
   display: block;
   object-fit: cover;
   border-radius: 12px;
-
-  /* Ne pas zoomer l’image */
-  transform: scale(1);
-  backface-visibility: hidden;
-  will-change: transform;
+  /* aucune transformation, reste nette */
 }
 
 /* ----- RESPONSIVE ----- */
