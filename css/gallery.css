@@ -14,21 +14,20 @@
   overflow: hidden;
   border-radius: 12px;
 
-  /* Ombre par défaut */
+  /* Ombre initiale */
   box-shadow: 0 4px 12px rgba(0,0,0,0.1);
 
   /* Bordure initiale (invisible) */
   border: 2px solid transparent;
 
-  /* Transition fluide sur bordure, ombre et translation */
-  transition: border 0.3s ease, box-shadow 0.3s ease, transform 0.3s ease;
+  /* Transition fluide pour ombre, bordure et overlay */
+  transition: box-shadow 0.3s ease, border 0.3s ease;
 }
 
-/* Survol : bordure visible, ombre plus prononcée et effet "pop" */
+/* Survol : bordure visible et ombre dynamique */
 .img-wrapper:hover {
   border: 2px solid rgba(255, 255, 255, 0.6); /* bordure semi-transparente */
-  box-shadow: 0 10px 30px rgba(0,0,0,0.25); /* ombre renforcée */
-  transform: translateY(-5px); /* léger déplacement vertical */
+  box-shadow: 0 12px 40px rgba(0,0,0,0.25); /* ombre dynamique */
 }
 
 /* ----- IMAGE ----- */
@@ -38,7 +37,22 @@
   object-fit: cover;
   border-radius: 12px;
 
-  /* Aucune transformation sur l’image */
+  /* L'image reste nette */
+}
+
+/* ----- SURBRILLANCE (overlay) ----- */
+.img-wrapper::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: rgba(255, 255, 255, 0); /* invisible par défaut */
+  transition: background 0.3s ease;
+  border-radius: 12px;
+  pointer-events: none; /* overlay non interactif */
+}
+
+.img-wrapper:hover::after {
+  background: rgba(255, 255, 255, 0.15); /* léger highlight */
 }
 
 /* ----- RESPONSIVE ----- */
