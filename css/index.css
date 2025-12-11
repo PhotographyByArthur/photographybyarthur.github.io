@@ -31,7 +31,7 @@ body {
 }
 
 .gallery a:first-child {
-  grid-column: 1 / -1;
+  display: none;
 }
 
 .gallery a:first-child img {
