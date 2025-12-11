@@ -2,15 +2,8 @@
   { "file": "Photo1-animaux.JPG", "alt": "Cygne", "height": 280, "caption": "Grand-Est - Réserve naturelle - 2025" },
   { "file": "Photo2-animaux.JPG", "alt": "Comoran", "height": 200, "caption": "Grand-Est - Réserve naturelle - 2025" },
   { "file": "Photo3-animaux.JPG", "alt": "Cygne", "height": 370, "caption": "Grand-Est - Réserve naturelle - 2025" },
-  { "file": "Photo4-animaux.JPG", "alt": "Oiseau", "height": 220, "caption": "Grand-Est - Réserve naturelle - 2025" },
-  { "file": "Photo5-animaux.JPG", "alt": "Oiseau", "height": 280, "caption": "Afrique du Sud - Parc Kruger - 2024" },
-  { "file": "Photo6-animaux.JPG", "alt": "Oiseau", "height": 240, "caption": "Afrique du Sud - Parc Kruger - 2024" },
-  { "file": "Photo7-animaux.JPG", "alt": "Autruche", "height": 260, "caption": "Afrique du Sud - Parc Kruger - 2024" },
-  { "file": "Photo8-animaux.JPG", "alt": "Elephant", "height": 230, "caption": "Afrique du Sud - Parc Kruger - 2024" },
-  { "file": "Photo9-animaux.JPG", "alt": "Antilope", "height": 200, "caption": "Afrique du Sud - Parc Kruger - 2024" },
-  { "file": "Photo10-animaux.JPG", "alt": "Zèbre", "height": 300, "caption": "Afrique du Sud - Parc Kruger - 2024" },
-  { "file": "Photo11-animaux.JPG", "alt": "Buffle", "height": 280, "caption": "Afrique du Sud - Parc Kruger - 2024" },
-  { "file": "Photo12-animaux.JPG", "alt": "Hyène", "height": 260, "caption": "Afrique du Sud - Parc Kruger - 2024" },
-  { "file": "Photo13-animaux.JPG", "alt": "Hyène", "height": 270, "caption": "Afrique du Sud - Parc Kruger - 2024" },
-  { "file": "Photo14-animaux.JPG", "alt": "Babouin", "height": 230, "caption": "Afrique du Sud - Parc Kruger - 2024" }
+  { "file": "Photo4-animaux.JPG", "alt": "Pic épeiche", "height": 220, "caption": "Grand-Est - Réserve naturelle - 2025" },
+  { "file": "Photo5-animaux.JPG", "alt": "Zèbre", "height": 280, "caption": "Afrique du Sud - Parc Kruger - 2024" },
+  { "file": "Photo7-animaux.JPG", "alt": "Choucador à oreillons bleus", "height": 260, "caption": "Afrique du Sud - Parc Kruger - 2024" },
+  { "file": "Photo10-animaux.JPG", "alt": "Hyène", "height": 300, "caption": "Afrique du Sud - Parc Kruger - 2024" }
 ]
