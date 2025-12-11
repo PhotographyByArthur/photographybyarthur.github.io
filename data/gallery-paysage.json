@@ -1,8 +1,8 @@
 [
-  { "file": "Photo1-paysage.jpg", "alt": "Kirkjufellsfoss", "height": 280, "caption": "Islande - Kirkjufellsfoss - 2025" },
-  { "file": "Photo2-paysage.jpg", "alt": "Stokksnes", "height": 200, "caption": "Islande - Stokksnes - 2025" },
+  { "file": "Photo1-paysage.jpg", "alt": "Kirkjufellsfoss", "height": 460, "caption": "Islande - Kirkjufellsfoss - 2025" },
+  { "file": "Photo2-paysage.jpg", "alt": "Stokksnes", "height": 370, "caption": "Islande - Stokksnes - 2025" },
   { "file": "Photo3-paysage.jpg", "alt": "DC-3 Sólheimasandur ", "height": 370, "caption": "Islande - DC-3 Sólheimasandur - 2025" },
-  { "file": "Photo4-paysage.jpg", "alt": "Seydisfjordur", "height": 220, "caption": "Islande - Seydisfjordur - 2025" },
+  { "file": "Photo4-paysage.jpg", "alt": "Seydisfjordur", "height": 390, "caption": "Islande - Seydisfjordur - 2025" },
   { "file": "Photo5-paysage.jpg", "alt": "Goðafoss", "height": 280, "caption": "Islande - Goðafoss - 2025" }
 
 ]
