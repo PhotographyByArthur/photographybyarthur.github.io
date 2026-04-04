@@ -13,8 +13,6 @@
   --footer-text: #777777;           /* texte du footer */
   --submenu-bg: #f8f8f8;            /* fond sous-menu */
   --submenu-hover: #eaeaea;         /* hover sous-menu */
-  --gallery-shadow: rgba(0,0,0,0.1);        /* ombre des images */
-  --gallery-shadow-hover: rgba(0,0,0,0.2);  /* ombre hover des images */
 }
 
 /* ----- GLOBAL STYLES ----- */
