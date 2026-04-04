@@ -23,42 +23,33 @@ body {
   grid-template-columns: repeat(3, 1fr);
   gap: 20px;
   padding: 20px 40px;
+
+  /* TEST VISUEL */
+  border: 5px solid blue;
 }
 
 .gallery a {
   display: block;
   position: relative;
+
+  /* TEST */
+  border: 3px solid green;
+  min-height: 100px;
 }
 
-.gallery a:first-child {
+/* ⚠️ SUPPRIMÉ POUR TEST */
+/* .gallery a:first-child {
   display: none;
-}
+} */
 
-.gallery a:first-child img {
+.gallery img {
   width: 100%;
   border-radius: 12px;
   object-fit: cover;
-  height: 800px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
 
-.gallery a:first-child img:hover {
-  transform: scale(1.03);
-  box-shadow: 0 6px 20px rgba(0,0,0,0.2);
-}
-
-.gallery a:not(:first-child) img {
-  width: 100%;
-  border-radius: 12px;
-  object-fit: cover;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-}
-
-.gallery a:not(:first-child) img:hover {
-  transform: scale(1.03);
-  box-shadow: 0 6px 20px rgba(0,0,0,0.2);
+  /* TEST VISUEL */
+  border: 5px solid red;
+  min-height: 100px;
 }
 
 /* Quinconce */
@@ -74,7 +65,6 @@ body {
 @media (max-width: 768px) {
   .gallery { grid-template-columns: 1fr; }
   .gallery a:nth-child(n) { margin-top: 0; }
-  .gallery a:first-child img { height: 250px; }
   nav li { margin: 0 10px; }
   nav li ul { left: 50%; transform: translate(-50%, 0); }
 }
