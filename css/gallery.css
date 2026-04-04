@@ -1,55 +1,32 @@
-/* ----- RESET ----- */
-*, *::before, *::after {
-  box-sizing: border-box;
-}
-
-body {
-  margin: 0;
-  font-family: 'Poppins', sans-serif;
-  background: white;
-  color: black;
-  text-align: center;
-}
-
-/* Désactivation du clic sur Galerie */
-.no-click {
-  cursor: default;
-  pointer-events: none;
-}
-
 /* ----- GALERIE ----- */
 .gallery {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 20px;
   padding: 20px 40px;
-
-  /* TEST VISUEL */
-  border: 5px solid blue;
 }
 
 .gallery a {
   display: block;
   position: relative;
-
-  /* TEST */
-  border: 3px solid green;
-  min-height: 100px;
 }
 
-/* ⚠️ SUPPRIMÉ POUR TEST */
-/* .gallery a:first-child {
-  display: none;
-} */
+/* Si tu veux masquer le premier élément, garde la ligne sinon commente-la */
+/* .gallery a:first-child { display: none; } */
 
-.gallery img {
+.gallery a:first-child img,
+.gallery a:not(:first-child) img {
   width: 100%;
   border-radius: 12px;
   object-fit: cover;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
 
-  /* TEST VISUEL */
-  border: 5px solid red;
-  min-height: 100px;
+.gallery a:first-child img:hover,
+.gallery a:not(:first-child) img:hover {
+  transform: scale(1.03);
+  box-shadow: 0 6px 20px rgba(0,0,0,0.2);
 }
 
 /* Quinconce */
@@ -65,6 +42,5 @@ body {
 @media (max-width: 768px) {
   .gallery { grid-template-columns: 1fr; }
   .gallery a:nth-child(n) { margin-top: 0; }
-  nav li { margin: 0 10px; }
-  nav li ul { left: 50%; transform: translate(-50%, 0); }
+  .gallery a:first-child img { height: 250px; }
 }
