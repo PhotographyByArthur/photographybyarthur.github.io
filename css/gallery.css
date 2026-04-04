@@ -1,3 +1,22 @@
+/* ----- RESET ----- */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: 'Poppins', sans-serif;
+  background: #fff;
+  color: #222;
+  text-align: center;
+}
+
+/* Désactivation du clic sur Galerie */
+.no-click {
+  cursor: default;
+  pointer-events: none;
+}
+
 /* ----- GALERIE ----- */
 .gallery {
   display: grid;
@@ -11,10 +30,24 @@
   position: relative;
 }
 
-/* Si tu veux masquer le premier élément, garde la ligne sinon commente-la */
-/* .gallery a:first-child { display: none; } */
+.gallery a:first-child {
+  display: none;
+}
 
-.gallery a:first-child { display: none; },
+.gallery a:first-child img {
+  width: 100%;
+  border-radius: 12px;
+  object-fit: cover;
+  height: 800px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.gallery a:first-child img:hover {
+  transform: scale(1.03);
+  box-shadow: 0 6px 20px rgba(0,0,0,0.2);
+}
+
 .gallery a:not(:first-child) img {
   width: 100%;
   border-radius: 12px;
@@ -23,7 +56,6 @@
   box-shadow: 0 4px 12px rgba(0,0,0,0.1);
 }
 
-.gallery a:first-child img:hover,
 .gallery a:not(:first-child) img:hover {
   transform: scale(1.03);
   box-shadow: 0 6px 20px rgba(0,0,0,0.2);
@@ -43,4 +75,6 @@
   .gallery { grid-template-columns: 1fr; }
   .gallery a:nth-child(n) { margin-top: 0; }
   .gallery a:first-child img { height: 250px; }
+  nav li { margin: 0 10px; }
+  nav li ul { left: 50%; transform: translate(-50%, 0); }
 }
