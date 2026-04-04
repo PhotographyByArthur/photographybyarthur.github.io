@@ -2,6 +2,7 @@
 *, *::before, *::after {
   box-sizing: border-box;
 }
+
 /* ----- STYLE SPÉCIFIQUE À LA PAGE LÉGALE ----- */
 
 /* Conteneur principal pour le contenu légal */
@@ -12,12 +13,12 @@ main {
   padding: 0 20px;
   line-height: 1.6;
   font-size: 1em;
-  color: #222;
+  color: var(--text-color);  /* couleur texte centralisée */
 }
 
 /* Titre principal */
 main h1 {
-  color: #777;               /* gris cohérent avec le site */
+  color: var(--footer-text); /* gris cohérent avec le site */
   font-size: 2.2em;
   margin-bottom: 10px;
   text-align: left;
@@ -30,7 +31,7 @@ main p {
 
 /* Liens dans le contenu */
 main a {
-  color: #1e90ff;
+  color: var(--main-color);
   text-decoration: none;
 }
 
