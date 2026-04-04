@@ -1,86 +1,80 @@
-/* ----- VARIABLES COULEURS GLOBALES ----- */
-:root {
-  --main-color: #1e90ff;   /* liens et hover */
-  --bg-color: #ffffff;      /* fond général */
-  --text-color: #222222;    /* texte général */
-}
-
 /* ----- RESET ----- */
 *, *::before, *::after {
   box-sizing: border-box;
 }
 
-/* ----- GALERIE 4 COLONNES (ORIGINALE) ----- */
+body {
+  margin: 0;
+  font-family: 'Poppins', sans-serif;
+  background: var(--bg-color);   /* modifié */
+  color: var(--text-color);      /* modifié */
+  text-align: center;
+}
+
+/* Désactivation du clic sur Galerie */
+.no-click {
+  cursor: default;
+  pointer-events: none;
+}
+
+/* ----- GALERIE ----- */
 .gallery {
-  column-count: 4;
-  column-gap: 10px;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
   padding: 20px 40px;
 }
 
-/* ----- BLOC D’IMAGE ----- */
-.img-wrapper {
-  position: relative;
-  display: inline-block;
-  width: 100%;
-  margin-bottom: 10px;
-  overflow: hidden;
-  border-radius: 14px;
-
-  /* Ombre douce multi-niveau au repos (locale) */
-  box-shadow:
-    0 1px 3px rgba(0,0,0,0.15),
-    0 4px 10px rgba(0,0,0,0.08);
-
-  border: 2px solid transparent;
-
-  transition:
-    box-shadow 0.35s ease,
-    border 0.35s ease;
-}
-
-/* Survol : ombre premium + bordure légère (locale) */
-.img-wrapper:hover {
-  border: 2px solid rgba(255, 255, 255, 0.6);
-
-  box-shadow:
-    0 6px 12px rgba(0,0,0,0.12),
-    0 16px 32px rgba(0,0,0,0.25),
-    0 24px 48px rgba(0,0,0,0.15);
-}
-
-/* ----- IMAGE ----- */
-.img-wrapper img {
-  width: 100%;
+.gallery a {
   display: block;
+  position: relative;
+}
+
+.gallery a:first-child {
+  display: none;
+}
+
+.gallery a:first-child img {
+  width: 100%;
+  border-radius: 12px;
   object-fit: cover;
-  border-radius: 14px;
+  height: 800px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1); /* reste local */
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-/* ----- OVERLAY / SURBRILLANCE PREMIUM ----- */
-.img-wrapper::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  border-radius: 14px;
-  pointer-events: none;
-  background: linear-gradient(
-    to bottom,
-    rgba(255, 255, 255, 0.80),
-    rgba(255, 255, 255, 0)
-  );
-  opacity: 0;
-  transition: opacity 0.35s ease;
+.gallery a:first-child img:hover {
+  transform: scale(1.03);
+  box-shadow: 0 6px 20px rgba(0,0,0,0.2); /* reste local */
 }
 
-.img-wrapper:hover::after {
-  opacity: 1;
+.gallery a:not(:first-child) img {
+  width: 100%;
+  border-radius: 12px;
+  object-fit: cover;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1); /* reste local */
 }
+
+.gallery a:not(:first-child) img:hover {
+  transform: scale(1.03);
+  box-shadow: 0 6px 20px rgba(0,0,0,0.2); /* reste local */
+}
+
+/* Quinconce */
+.gallery a:nth-child(2) { margin-top: 60px; }
+.gallery a:nth-child(3) { margin-top: 120px; }
+.gallery a:nth-child(4) { margin-top: 60px; }
 
 /* ----- RESPONSIVE ----- */
 @media (max-width: 1024px) {
-  .gallery { column-count: 2; }
+  .gallery { grid-template-columns: repeat(2, 1fr); }
 }
 
-@media (max-width: 600px) {
-  .gallery { column-count: 1; }
+@media (max-width: 768px) {
+  .gallery { grid-template-columns: 1fr; }
+  .gallery a:nth-child(n) { margin-top: 0; }
+  .gallery a:first-child img { height: 250px; }
+  nav li { margin: 0 10px; }
+  nav li ul { left: 50%; transform: translate(-50%, 0); }
 }
