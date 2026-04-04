@@ -166,6 +166,7 @@ footer {
   position: relative;
 }
 
+/* Si tu veux masquer le premier élément, garde la ligne sinon commente-la */
 .gallery a:first-child {
   display: none;
 }
@@ -176,13 +177,13 @@ footer {
   border-radius: 12px;
   object-fit: cover;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
-  box-shadow: 0 4px 12px var(--gallery-shadow);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
 }
 
 .gallery a:first-child img:hover,
 .gallery a:not(:first-child) img:hover {
   transform: scale(1.03);
-  box-shadow: 0 6px 20px var(--gallery-shadow-hover);
+  box-shadow: 0 6px 20px rgba(0,0,0,0.2);
 }
 
 /* Quinconce */
