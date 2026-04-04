@@ -1,4 +1,16 @@
-/* ----- GALERIE 4 COLONNES ----- */
+/* ----- VARIABLES COULEURS GLOBALES ----- */
+:root {
+  --main-color: #1e90ff;   /* liens et hover */
+  --bg-color: #ffffff;      /* fond général */
+  --text-color: #222222;    /* texte général */
+}
+
+/* ----- RESET ----- */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+/* ----- GALERIE 4 COLONNES (ORIGINALE) ----- */
 .gallery {
   column-count: 4;
   column-gap: 10px;
@@ -14,7 +26,7 @@
   overflow: hidden;
   border-radius: 14px;
 
-  /* Ombre douce multi-niveau au repos */
+  /* Ombre douce multi-niveau au repos (locale) */
   box-shadow:
     0 1px 3px rgba(0,0,0,0.15),
     0 4px 10px rgba(0,0,0,0.08);
@@ -26,11 +38,10 @@
     border 0.35s ease;
 }
 
-/* Survol : ombre premium + bordure légère */
+/* Survol : ombre premium + bordure légère (locale) */
 .img-wrapper:hover {
   border: 2px solid rgba(255, 255, 255, 0.6);
 
-  /* Ombre dynamique multilayer */
   box-shadow:
     0 6px 12px rgba(0,0,0,0.12),
     0 16px 32px rgba(0,0,0,0.25),
@@ -43,8 +54,6 @@
   display: block;
   object-fit: cover;
   border-radius: 14px;
-
-  /* L'image reste net, jamais transformée */
 }
 
 /* ----- OVERLAY / SURBRILLANCE PREMIUM ----- */
@@ -54,20 +63,17 @@
   inset: 0;
   border-radius: 14px;
   pointer-events: none;
-
-  /* Dégradé subtil (haut lumineux → bas transparent) */
   background: linear-gradient(
     to bottom,
     rgba(255, 255, 255, 0.80),
     rgba(255, 255, 255, 0)
   );
-
-  opacity: 0; /* invisible par défaut */
+  opacity: 0;
   transition: opacity 0.35s ease;
 }
 
 .img-wrapper:hover::after {
-  opacity: 1; /* surbrillance élégante */
+  opacity: 1;
 }
 
 /* ----- RESPONSIVE ----- */
