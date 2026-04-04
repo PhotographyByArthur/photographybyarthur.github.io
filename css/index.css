@@ -3,47 +3,142 @@
   box-sizing: border-box;
 }
 
-/* ----- GALERIE ----- */
-.gallery {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 20px;
-  padding: 20px 40px;
+/* ----- FIX POUR LE MENU NAV ----- */
+html {
+  overflow-y: scroll; /* toujours afficher la scrollbar pour toutes les pages */
 }
 
-.gallery a {
-  display: block;
+body {
+  margin: 0;
+  font-family: 'Poppins', sans-serif;
+  background: #fff;
+  color: #222;
+  text-align: center;
+}
+
+/* ----- MENU FIXE ----- */
+nav {
+  position: fixed;
+  top: 0;
+  width: 100vw;       /* largeur = largeur complète de la fenêtre, scrollbar incluse */
+  box-sizing: border-box;
+  background: #f8f8f8;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+  display: flex;
+  justify-content: center;
+  padding: 15px 0;
+  z-index: 1000;
+}
+
+nav ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  align-items: center;
+}
+
+nav li {
   position: relative;
+  margin: 0 20px;
 }
 
-.gallery a:first-child {
-  display: none;
+nav a {
+  color: #222;
+  text-decoration: none;
+  font-weight: bold;
+  padding: 8px 12px;
+  display: block;
 }
 
-.gallery a:first-child img,
-.gallery a:not(:first-child) img {
+nav a:hover {
+  color: #1e90ff;
+}
+
+/* ----- SOUS-MENU ----- */
+nav li ul {
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translate(-50%, -8px);
+  background: #f8f8f8;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  display: flex;
+  flex-direction: column;
+  width: fit-content;
+  padding: 6px;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.28s ease, transform 0.28s ease;
+  z-index: 1001;
+  white-space: nowrap;
+}
+
+nav li:hover ul {
+  opacity: 1;
+  transform: translate(-50%, 0);
+  pointer-events: auto;
+}
+
+nav li ul li {
   width: 100%;
-  border-radius: 12px;
-  object-fit: cover;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
 }
 
-.gallery a:first-child img:hover,
-.gallery a:not(:first-child) img:hover {
-  transform: scale(1.03);
-  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+nav li ul li a {
+  display: block;
+  width: 100%;
+  padding: 10px 16px;
+  font-weight: normal;
+  text-align: center;
+  color: #222;
+  border-radius: 6px;
 }
 
-/* Quinconce */
-.gallery a:nth-child(2) { margin-top: 60px; }
-.gallery a:nth-child(3) { margin-top: 120px; }
-.gallery a:nth-child(4) { margin-top: 60px; }
+nav li ul li a:hover {
+  background: #eaeaea;
+  color: #000;
+}
 
-/* Désactivation du clic sur Galerie */
+/* ----- GALERIE : lien inactif ----- */
 .no-click {
   cursor: default;
   pointer-events: none;
+}
+
+/* Texte bleu quand actif (mobile ou hover PC) */
+.no-click.active {
+  color: #1e90ff !important;
+}
+
+/* PC : au survol */
+nav li:hover > a.no-click {
+  color: #1e90ff;
+}
+
+/* ----- HEADER ----- */
+header {
+  padding: 100px 20px 40px;
+}
+
+h1 {
+  font-size: 2.5em;
+  margin-bottom: 10px;
+}
+
+p {
+  color: #555;
+  font-size: 1.2em;
+  margin-bottom: 40px;
+}
+
+/* ----- FOOTER ----- */
+footer {
+  background: #f0f0f0;
+  color: #777;
+  padding: 20px;
+  font-size: 0.9em;
+  margin-top: 40px;
 }
 
 /* ----- RESPONSIVE ----- */
