@@ -3,20 +3,6 @@
   box-sizing: border-box;
 }
 
-body {
-  margin: 0;
-  font-family: 'Poppins', sans-serif;
-  background: #fff;
-  color: #222;
-  text-align: center;
-}
-
-/* Désactivation du clic sur Galerie */
-.no-click {
-  cursor: default;
-  pointer-events: none;
-}
-
 /* ----- GALERIE ----- */
 .gallery {
   display: grid;
@@ -34,37 +20,31 @@ body {
   display: none;
 }
 
-.gallery a:first-child img {
-  width: 100%;
-  border-radius: 12px;
-  object-fit: cover;
-  height: 800px;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
-
-.gallery a:first-child img:hover {
-  transform: scale(1.03);
-  box-shadow: 0 6px 20px rgba(0,0,0,0.2);
-}
-
+.gallery a:first-child img,
 .gallery a:not(:first-child) img {
   width: 100%;
   border-radius: 12px;
   object-fit: cover;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
-  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  box-shadow: 0 4px 12px var(--gallery-shadow);
 }
 
+.gallery a:first-child img:hover,
 .gallery a:not(:first-child) img:hover {
   transform: scale(1.03);
-  box-shadow: 0 6px 20px rgba(0,0,0,0.2);
+  box-shadow: 0 6px 20px var(--gallery-shadow-hover);
 }
 
 /* Quinconce */
 .gallery a:nth-child(2) { margin-top: 60px; }
 .gallery a:nth-child(3) { margin-top: 120px; }
 .gallery a:nth-child(4) { margin-top: 60px; }
+
+/* Désactivation du clic sur Galerie */
+.no-click {
+  cursor: default;
+  pointer-events: none;
+}
 
 /* ----- RESPONSIVE ----- */
 @media (max-width: 1024px) {
