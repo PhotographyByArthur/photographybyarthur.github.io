@@ -14,7 +14,7 @@
 /* Si tu veux masquer le premier élément, garde la ligne sinon commente-la */
 /* .gallery a:first-child { display: none; } */
 
-.gallery a:first-child img,
+.gallery a:first-child { display: none; },
 .gallery a:not(:first-child) img {
   width: 100%;
   border-radius: 12px;
