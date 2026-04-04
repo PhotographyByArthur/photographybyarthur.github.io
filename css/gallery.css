@@ -23,6 +23,9 @@ body {
   grid-template-columns: repeat(3, 1fr);
   gap: 20px;
   padding: 20px 40px;
+
+  --gallery-shadow: rgba(0,0,0,0.1);
+  --gallery-shadow-hover: rgba(0,0,0,0.2); 
 }
 
 .gallery a {
