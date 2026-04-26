@@ -1,54 +1,47 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-    <meta charset="utf-8" />
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-    <title>Photography by Arthur</title>
-
-    <style>
-        html { visibility: hidden; }
-    </style>
-
+    <title>Entre ciel et terre - Photography by Arthur</title>
     <script>
         if (localStorage.getItem("theme") === "dark") {
             document.documentElement.classList.add("dark-mode");
         }
     </script>
-
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&family=Roboto:wght@400&display=swap" rel="stylesheet">
-
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.css" />
     <link rel="stylesheet" href="/css/shared/variables.css">
     <link rel="stylesheet" href="/css/shared/style.css">
-    <link rel="stylesheet" href="/css/pages/index.css">
+    <link rel="stylesheet" href="/css/gallery/collections.css">
     <link rel="stylesheet" href="/css/shared/cookies.css">
 </head>
-
 <body>
+
     <div id="nav-placeholder"></div>
 
     <header>
-        <h1>Photography by Arthur</h1>
-        <p>Photographe — Sport, Nature, & Voyage</p>
+        <h1>Entre ciel et terre</h1>
+        <p>Là où le regard se libère, la hauteur révèle l’invisible</p>
     </header>
 
-    <main>
-        <section class="gallery">
-            <a><img src="/assets/images/pages/index/Photo1-index.jpg" alt="Photo 1"></a>
-            <a><img src="/assets/images/pages/index/Photo2-index.jpg" alt="Photo 2"></a>
-            <a><img src="/assets/images/pages/index/Photo3-index.jpg" alt="Photo 3"></a>
-        </section>
-    </main>
+    <section class="gallery" 
+             id="gallery"
+             data-json="/data/gallery/collections/aerien.json"
+             data-folder="/assets/images/gallery/collections/aerien">
+    </section>
 
     <footer>
-        © 2026 Photography by Arthur — Tous droits réservés |
-        <a href="legal.html">Mentions légales & Politique de confidentialité</a>
+        © 2026 Photography by Arthur — Tous droits réservés | 
+        <a href="/legal.html">Mentions légales & Politique de confidentialité</a>
     </footer>
 
+    <script src="https://cdn.jsdelivr.net/npm/@fancyapps/ui/dist/fancybox.umd.js"></script>
     <script src="/js/shared/script.js"></script>
-    <script src="/js/shared/theme.js"></script>
+    <script src="/js/gallery/collections.js"></script>
     <script src="/js/shared/cookies.js"></script>
-    <script src="/js/pages/index.js"></script>
+    <script src="/js/shared/theme.js" defer></script>
 </body>
 </html>

@@ -1,0 +1,76 @@
+:root {
+    --color-text-primary: #333;
+    --color-text-secondary: #555;
+    --color-text-tertiary: #888C8E;
+    --color-text-footer: #777;
+    --color-text-nav: #222;
+    --color-text-hover: #2a9d8f;
+    --color-bg: #F8FAFC;
+    --color-nav-bg: #E6F0F0;
+    --color-footer-bg: #D9EAE8;
+    --color-hover-bg: #CFE6E3;
+    --color-border-hover: #ffffff;
+    --font-primary: 'Poppins', sans-serif;
+    --font-secondary: 'Roboto', sans-serif;
+    --font-heading-weight: 700;
+    --font-body-weight: 400;
+    --line-height-body: 1.6;
+    --line-height-heading: 1.2;
+    --letter-spacing: 0.5px;
+    --text-size-body: 1em;
+    --text-size-p: 1.2em;
+    --text-size-h1: 2.5em;
+    --text-size-h2: 2em;
+    --text-size-h3: 1.75em;
+    --text-size-footer: 0.9em;
+    --spacing-nav-padding: 15px;
+    --spacing-footer-padding: 20px;
+    --spacing-gallery-gap: 20px;
+    --spacing-gallery-padding: 20px 40px;
+    --border-radius: 12px;
+    --container-max: 1500px;
+    --card-width: 1fr;
+    --spacing-quinconce-2: 60px;
+    --spacing-quinconce-3: 120px;
+    --spacing-quinconce-4: 60px;
+    --size-small: 220px;
+    --size-medium: 300px;
+    --size-large: 380px;
+}
+
+.dark-mode {
+    --color-bg: #121212;
+    --color-text-primary: #eee;
+    --color-text-secondary: #bbb;
+    --color-text-footer: #aaa;
+    --color-text-nav: #fff;
+    --color-nav-bg: #1e1e1e;
+    --color-footer-bg: #1b1b1b;
+    --color-hover-bg: #333;
+    --color-border-hover: #ffffff;
+}
+
+#toggle-theme {
+    position: fixed;
+    top: calc(12px + env(safe-area-inset-top));
+    right: calc(12px + env(safe-area-inset-right));
+    z-index: 9999;
+    background: 0 0;
+    border: none;
+    cursor: pointer;
+}
+
+#theme-icon {
+    width: 28px !important;
+    height: 28px !important;
+    display: block;
+    transition: transform .2s ease;
+}
+
+#toggle-theme:hover #theme-icon {
+    transform: scale(1.15);
+}
+
+.dark-mode section::after {
+    background: linear-gradient(to right, transparent, rgba(255, 255, 255, .18), transparent);
+}

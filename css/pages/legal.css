@@ -1,0 +1,92 @@
+/* ----- RESET ----- */
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+/* ----- STYLE SPÉCIFIQUE À LA PAGE LÉGALE ----- */
+
+/* Conteneur principal pour le contenu légal */
+main {
+  text-align: left;                                  /* Texte aligné à gauche */
+  margin: var(--spacing-main-top, 20px) auto var(--spacing-main-bottom, 60px); /* Espaces haut/bas */
+  max-width: 900px;                                  /* Largeur confortable pour lecture */
+  padding: var(--spacing-main-padding-y, 0) var(--spacing-main-padding-x, 20px);
+  line-height: var(--line-height-body, 1.6);         /* Interligne du texte */
+  font-size: var(--font-size-body, 1em);            /* Taille du texte */
+  font-family: var(--font-secondary, 'Roboto', sans-serif);
+  color: var(--color-text-primary);                 /* Texte principal */
+}
+
+/* Titre principal */
+main h1 {
+  color: var(--color-text-secondary);              /* Gris cohérent avec le site */
+  font-size: var(--font-size-h1, 2.2em);
+  line-height: var(--line-height-heading, 1.3);     /* Interligne des titres */
+  margin-bottom: var(--spacing-title-to-text, 10px); /* Espacement sous H1 */
+  text-align: left;
+  font-weight: var(--font-heading-weight, 700);
+  letter-spacing: var(--letter-spacing, normal);
+}
+
+/* Paragraphes et textes */
+main p {
+  margin-bottom: var(--spacing-paragraph, 15px);
+  color: var(--color-text-tertiary);              /* Texte secondaire / tertiaire */
+  font-weight: var(--font-body-weight, 400);
+  line-height: var(--line-height-body, 1.6);
+  letter-spacing: var(--letter-spacing, normal);
+}
+
+/* Liens dans le contenu */
+main a {
+  color: var(--color-text-hover);
+  text-decoration: none;
+}
+
+main a:hover {
+  text-decoration: underline;
+}
+
+/* ----- RESPONSIVE ----- */
+@media (max-width: 768px) {
+  main {
+    margin: var(--spacing-main-top-mobile, 140px) var(--spacing-main-padding-x-mobile, 15px) var(--spacing-main-bottom-mobile, 40px);
+    font-size: var(--font-size-body-mobile, 0.95em);
+  }
+}
+
+.about-instagram {
+  margin-top: var(--spacing-main-bottom, 40px);
+  display: flex;
+  justify-content: flex-start;
+}
+
+.about-instagram a {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+
+  text-decoration: none;
+
+  color: var(--color-text-primary);
+
+  font-size: 0.95em;
+
+  opacity: 0.8;
+
+  transition: opacity 0.2s ease, transform 0.2s ease;
+}
+
+.about-instagram img {
+  width: 24px;
+  height: 24px;
+  display: block;
+  object-fit: contain;
+  flex-shrink: 0;
+}
+
+.about-instagram a:hover {
+  opacity: 1;
+  transform: translateY(-2px);
+}
+
