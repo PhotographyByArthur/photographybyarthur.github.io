@@ -2,203 +2,169 @@ document.addEventListener("DOMContentLoaded", function() {
     const _gal = document.getElementById("gallery");
     if (!_gal) return;
 
-    // Récupération des paramètres via le HTML
     const _u = _gal.dataset.json;
     const _f = _gal.dataset.folder;
 
-    // --- GESTION DU MODE SOMBRE ---
-    const _themeBtn = document.getElementById('toggle-theme');
-    if (_themeBtn) {
-        _themeBtn.addEventListener('click', () => {
+    // --- MODE SOMBRE ---
+    const _tBt = document.getElementById('toggle-theme');
+    if (_tBt) {
+        _tBt.addEventListener('click', () => {
             document.body.classList.toggle('dark-mode');
-            const isDark = document.body.classList.contains('dark-mode');
-            localStorage.setItem('theme', isDark ? 'dark' : 'light');
+            localStorage.setItem('theme', document.body.classList.contains('dark-mode') ? 'dark' : 'light');
         });
     }
-    if (localStorage.getItem('theme') === 'dark') {
-        document.body.classList.add('dark-mode');
-    }
+    if (localStorage.getItem('theme') === 'dark') document.body.classList.add('dark-mode');
 
-    // --- FORCE LE MAINTIEN DU SCROLL (Correctif Fancybox) ---
-    const _lockStyle = () => {
+    // --- PROTECTION SCROLL & CLIC DROIT ---
+    const _lS = () => {
         [document.body, document.documentElement].forEach(el => {
-            if (el.style.marginRight !== '0px') el.style.setProperty('margin-right', '0px', 'important');
-            if (el.style.paddingRight !== '0px') el.style.setProperty('padding-right', '0px', 'important');
+            el.style.setProperty('margin-right', '0px', 'important');
+            el.style.setProperty('padding-right', '0px', 'important');
         });
     };
-    const _observer = new MutationObserver(_lockStyle);
-    _observer.observe(document.body, { attributes: true, attributeFilter: ['style', 'class'] });
+    const _obs = new MutationObserver(_lS);
+    _obs.observe(document.body, { attributes: true, attributeFilter: ['style', 'class'] });
 
-    // --- BANNIÈRE INSTAGRAM ---
-    const _showBanner = () => {
-        let banner = document.querySelector('.insta-banner');
-        if (!banner) {
-            banner = document.createElement('div');
-            banner.className = 'insta-banner';
-            banner.innerHTML = "N'oublie pas d'identifier <b>@photography.by.arthur</b> !";
-            document.body.appendChild(banner);
+    // Blocage clic droit global
+    document.addEventListener('contextmenu', e => {
+        if (e.target.closest('#gallery') || e.target.closest('.fancybox__container')) {
+            e.preventDefault();
         }
-        banner.classList.add('is-visible');
+    });
+
+    const _sB = () => {
+        let b = document.querySelector('.insta-banner');
+        if (!b) {
+            b = document.createElement('div');
+            b.className = 'insta-banner';
+            b.innerHTML = "✨ N'oublie pas d'identifier <b>@ton_instagram</b> ! ✨";
+            document.body.appendChild(b);
+        }
+        b.classList.add('is-visible');
     };
 
-    const _hideBanner = () => {
-        const banner = document.querySelector('.insta-banner');
-        if (banner) banner.classList.remove('is-visible');
-    };
+    window.addEventListener('click', () => document.querySelector('.insta-banner')?.classList.remove('is-visible'));
 
-    window.addEventListener('click', _hideBanner);
-
-    // --- PROTECTIONS FANCYBOX ---
-    function _protectSlide(fb) {
+    // --- PROTECTION FANCYBOX (OVERLAY) ---
+    function _pFS(fb) {
         const apply = () => {
-            const slide = fb.getSlide();
-            if (!slide || !slide.$el) return;
-            const content = slide.$el.querySelector('.fancybox__content');
-            if (!content || content.querySelector('.__fancy-p')) return;
+            const s = fb.getSlide();
+            if (!s?.$el) return;
+            const c = s.$el.querySelector('.fancybox__content');
+            if (!c || c.querySelector('.__fancy-p')) return;
             
-            const overlay = document.createElement('div');
-            overlay.className = '__fancy-p';
-            Object.assign(overlay.style, { 
+            const o = document.createElement('div');
+            o.className = '__fancy-p';
+            Object.assign(o.style, { 
                 position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', 
-                background: 'transparent', zIndex: 999, pointerEvents: 'auto'
+                zIndex: 999, background: 'transparent', pointerEvents: 'auto'
             });
-            overlay.addEventListener('contextmenu', e => e.preventDefault());
-            content.appendChild(overlay);
+            // Protection spécifique mobile/desktop sur l'image ouverte
+            o.addEventListener('contextmenu', e => e.preventDefault());
+            c.appendChild(o);
         };
-        apply();
         fb.on('Carousel.change', apply);
+        apply();
     }
 
-    // --- BOUTON DE PARTAGE CORRIGÉ (MOBILE) ---
-    function _setupShareBtn(fb) {
-        const toolbar = fb.$container.querySelector('.fancybox__toolbar__items--right') || fb.$container.querySelector('.fancybox__toolbar');
+    // --- BOUTON DE PARTAGE DE FICHIER (CORRIGÉ) ---
+    function _sIB(fb) {
+        const tb = fb.$container.querySelector('.fancybox__toolbar__items--right') || fb.$container.querySelector('.fancybox__toolbar');
         
-        if (toolbar && !fb.$container.querySelector('.btn-insta-share')) {
-            const btn = document.createElement('button');
-            btn.className = 'f-button btn-insta-share';
-            btn.setAttribute('type', 'button');
-            btn.style.pointerEvents = "auto";
+        if (tb && !fb.$container.querySelector('.btn-insta-share')) {
+            const bt = document.createElement('button');
+            bt.className = 'f-button btn-insta-share';
+            bt.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg><span class="btn-text" style="margin-left:10px;">Partager</span>`;
             
-            btn.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line></svg><span class="btn-text" style="margin-left:10px;">Partager</span>`;
-            
-            btn.addEventListener('click', async (e) => {
-                e.preventDefault();
-                e.stopPropagation();
+            bt.onclick = async (e) => {
+                e.preventDefault(); e.stopPropagation();
+                const nm = fb.getSlide().src.split('/').pop();
+                const pU = window.location.origin + _f + '/protected/' + nm;
 
-                const slide = fb.getSlide();
-                const fileName = slide.src.split('/').pop();
-                
-                // CORRECTION : Construction de l'URL absolue pour le mobile
-                const absoluteProtectedUrl = window.location.origin + _f + '/protected/' + fileName;
+                _sB();
 
-                _showBanner();
+                // Tentative de partage du FICHIER (Blob) au lieu du lien
+                try {
+                    const response = await fetch(pU);
+                    const blob = await response.blob();
+                    const file = new File([blob], nm, { type: blob.type });
 
-                if (navigator.share) {
-                    try {
+                    if (navigator.canShare && navigator.canShare({ files: [file] })) {
                         await navigator.share({
-                            title: 'Partage Photo',
-                            text: 'Regarde cette photo !',
-                            url: absoluteProtectedUrl
+                            files: [file],
+                            title: 'Photo de ma galerie',
                         });
-                    } catch (err) {
-                        window.open(absoluteProtectedUrl, '_blank');
+                    } else {
+                        // Repli sur le lien si le partage de fichier n'est pas supporté
+                        window.open(pU, '_blank');
                     }
-                } else {
-                    window.open(absoluteProtectedUrl, '_blank');
+                } catch (err) {
+                    console.error("Erreur de partage:", err);
+                    window.open(pU, '_blank');
+                }
+            };
+            tb.prepend(bt);
+        }
+    }
+
+    // --- CHARGEMENT ET RENDU ---
+    fetch(_u).then(r => r.json()).then(data => {
+        let nC = window.innerWidth <= 600 ? 1 : (window.innerWidth <= 1024 ? 2 : 4);
+        const cols = Array.from({ length: nC }, () => {
+            const c = document.createElement("div");
+            c.className = "gallery-column";
+            _gal.appendChild(c);
+            return c;
+        });
+
+        data.forEach((img, i) => {
+            const w = document.createElement("div");
+            w.className = "img-wrapper";
+            const a = document.createElement("a");
+            a.href = _f + '/' + img.file;
+            a.className = "fancy-trigger";
+            a.dataset.index = i;
+
+            const im = document.createElement("img");
+            im.src = _f + '/thumbs/' + img.file;
+            im.style.height = (img.height || 200) + 'px';
+            im.loading = "lazy";
+
+            const ov = document.createElement('div');
+            Object.assign(ov.style, { position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', zIndex: 10 });
+
+            a.append(im, ov);
+            w.appendChild(a);
+            cols[i % nC].appendChild(w);
+        });
+
+        _gal.classList.add("is-ready");
+
+        _gal.addEventListener("click", e => {
+            const t = e.target.closest(".fancy-trigger");
+            if (!t) return;
+            e.preventDefault();
+
+            Fancybox.show(data.map(img => ({ 
+                src: _f + '/' + img.file, 
+                type: "image",
+                caption: img.caption 
+            })), {
+                startIndex: parseInt(t.dataset.index),
+                Toolbar: { display: ["close"] },
+                dragToClose: false,
+                on: {
+                    ready: fb => {
+                        _lS();
+                        _pFS(fb);
+                        _sIB(fb);
+                        fb.$container.addEventListener('contextmenu', ev => ev.preventDefault());
+                    },
+                    closing: () => {
+                        document.documentElement.style.overflowY = 'scroll';
+                    }
                 }
             });
-            toolbar.prepend(btn);
-        }
-    }
-
-    // --- CHARGEMENT DES DONNÉES ET GÉNÉRATION ---
-    fetch(_u)
-        .then(res => res.ok ? res.json() : Promise.reject("Erreur JSON"))
-        .then(images => {
-            // Préparation des items pour Fancybox
-            const fancyboxItems = images.map(img => ({
-                src: _f + '/' + img.file,
-                caption: img.caption,
-                type: "image",
-            }));
-
-            // Création des colonnes responsive
-            let numCols = window.innerWidth <= 600 ? 1 : (window.innerWidth <= 1024 ? 2 : 4);
-            _gal.innerHTML = ""; 
-            const columnElements = [];
-            for (let i = 0; i < numCols; i++) {
-                const col = document.createElement("div");
-                col.className = "gallery-column";
-                _gal.appendChild(col);
-                columnElements.push(col);
-            }
-
-            // Distribution des images
-            images.forEach((img, index) => {
-                const targetColumn = columnElements[index % numCols];
-                const wrapper = document.createElement("div");
-                wrapper.className = "img-wrapper";
-
-                const anchor = document.createElement("a");
-                anchor.href = _f + '/' + img.file;
-                anchor.className = "fancy-trigger";
-                anchor.dataset.index = index;
-
-                // Anti-clic droit sur la vignette
-                anchor.addEventListener('contextmenu', ev => {
-                    ev.preventDefault();
-                    ev.stopPropagation();
-                }, { capture: true });
-
-                const image = document.createElement("img");
-                Object.assign(image, {
-                    src: _f + '/thumbs/' + img.file,
-                    alt: img.alt || "",
-                    draggable: false
-                });
-                image.style.height = `${img.height || 200}px`;
-                image.style.pointerEvents = "none";
-
-                // Overlay de protection invisible
-                const protectOverlay = document.createElement('div');
-                Object.assign(protectOverlay.style, { 
-                    position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', zIndex: 10 
-                });
-
-                anchor.append(image, protectOverlay);
-                wrapper.appendChild(anchor);
-                targetColumn.appendChild(wrapper);
-            });
-
-            _gal.classList.add("is-ready");
-
-            // --- GESTION DU CLIC POUR OUVRIR FANCYBOX ---
-            _gal.addEventListener("click", (e) => {
-                const trigger = e.target.closest(".fancy-trigger");
-                if (!trigger) return;
-                e.preventDefault();
-
-                Fancybox.show(fancyboxItems, {
-                    startIndex: parseInt(trigger.dataset.index),
-                    Toolbar: { display: ["close"] },
-                    Thumbs: false,
-                    dragToClose: false,
-                    Click: { content: false, backdrop: "close" },
-                    Image: { click: false, wheel: "slide", fit: "contain" },
-                    on: {
-                        ready: (fb) => {
-                            _lockStyle();
-                            _protectSlide(fb);
-                            _setupShareBtn(fb);
-                            // Anti-clic droit global dans Fancybox
-                            fb.$container.addEventListener('contextmenu', ev => ev.preventDefault());
-                        },
-                        closing: () => {
-                            document.documentElement.style.overflowY = 'scroll';
-                            _hideBanner();
-                        }
-                    }
-                });
-            });
         });
+    });
 });
