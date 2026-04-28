@@ -101,27 +101,32 @@ html.with-fancybox .gallery {
 .btn-insta-share:hover { 
     background: #E1306C !important; 
 }
-
 .insta-banner {
     position: fixed; 
     top: 0; 
     left: 0; 
     width: 100%; 
+    height: 50px;
     background: #E1306C; 
-    color: white; 
+    color: white !important; 
     text-align: center; 
-    padding: 14px 0; 
     font-weight: 600; 
     z-index: 9999999; 
     box-shadow: 0 4px 15px rgba(0,0,0,0.4);
     transform: translateY(-100%); 
-    transition: transform 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
     pointer-events: none; 
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .insta-banner.is-visible { 
     transform: translateY(0); 
     pointer-events: auto;
+}
+
+.insta-banner b {
+    margin-left: 5px;
 }
 
 @media (max-width: 480px) {
