@@ -5,7 +5,6 @@ document.addEventListener("DOMContentLoaded", function() {
     const _u = _gal.dataset.json;
     const _f = _gal.dataset.folder;
 
-    // --- MODE SOMBRE ---
     const _tBt = document.getElementById('toggle-theme');
     if (_tBt) {
         _tBt.addEventListener('click', () => {
@@ -15,7 +14,6 @@ document.addEventListener("DOMContentLoaded", function() {
     }
     if (localStorage.getItem('theme') === 'dark') document.body.classList.add('dark-mode');
 
-    // --- PROTECTION SCROLL & CLIC DROIT ---
     const _lS = () => {
         [document.body, document.documentElement].forEach(el => {
             el.style.setProperty('margin-right', '0px', 'important');
@@ -25,7 +23,6 @@ document.addEventListener("DOMContentLoaded", function() {
     const _obs = new MutationObserver(_lS);
     _obs.observe(document.body, { attributes: true, attributeFilter: ['style', 'class'] });
 
-    // Blocage clic droit global
     document.addEventListener('contextmenu', e => {
         if (e.target.closest('#gallery') || e.target.closest('.fancybox__container')) {
             e.preventDefault();
@@ -37,15 +34,27 @@ document.addEventListener("DOMContentLoaded", function() {
         if (!b) {
             b = document.createElement('div');
             b.className = 'insta-banner';
-            b.innerHTML = "✨ N'oublie pas d'identifier <b>@ton_instagram</b> ! ✨";
+            b.innerHTML = "N'oublie pas d'identifier <b>@photography.by.arthur</b> !";
+            
+            Object.assign(b.style, {
+                fontSize: '14px',
+                lineHeight: '50px',
+                height: '50px',
+                display: 'block',
+                transition: 'none'
+            });
+            
             document.body.appendChild(b);
         }
-        b.classList.add('is-visible');
+        
+        setTimeout(() => {
+            b.style.transition = 'transform 0.4s cubic-bezier(0.165, 0.84, 0.44, 1)';
+            b.classList.add('is-visible');
+        }, 10);
     };
 
     window.addEventListener('click', () => document.querySelector('.insta-banner')?.classList.remove('is-visible'));
 
-    // --- PROTECTION FANCYBOX (OVERLAY) ---
     function _pFS(fb) {
         const apply = () => {
             const s = fb.getSlide();
@@ -59,7 +68,6 @@ document.addEventListener("DOMContentLoaded", function() {
                 position: 'absolute', top: 0, left: 0, width: '100%', height: '100%', 
                 zIndex: 999, background: 'transparent', pointerEvents: 'auto'
             });
-            // Protection spécifique mobile/desktop sur l'image ouverte
             o.addEventListener('contextmenu', e => e.preventDefault());
             c.appendChild(o);
         };
@@ -67,10 +75,8 @@ document.addEventListener("DOMContentLoaded", function() {
         apply();
     }
 
-    // --- BOUTON DE PARTAGE DE FICHIER (CORRIGÉ) ---
     function _sIB(fb) {
         const tb = fb.$container.querySelector('.fancybox__toolbar__items--right') || fb.$container.querySelector('.fancybox__toolbar');
-        
         if (tb && !fb.$container.querySelector('.btn-insta-share')) {
             const bt = document.createElement('button');
             bt.className = 'f-button btn-insta-share';
@@ -80,34 +86,20 @@ document.addEventListener("DOMContentLoaded", function() {
                 e.preventDefault(); e.stopPropagation();
                 const nm = fb.getSlide().src.split('/').pop();
                 const pU = window.location.origin + _f + '/protected/' + nm;
-
                 _sB();
-
-                // Tentative de partage du FICHIER (Blob) au lieu du lien
                 try {
                     const response = await fetch(pU);
                     const blob = await response.blob();
                     const file = new File([blob], nm, { type: blob.type });
-
                     if (navigator.canShare && navigator.canShare({ files: [file] })) {
-                        await navigator.share({
-                            files: [file],
-                            title: 'Photo de ma galerie',
-                        });
-                    } else {
-                        // Repli sur le lien si le partage de fichier n'est pas supporté
-                        window.open(pU, '_blank');
-                    }
-                } catch (err) {
-                    console.error("Erreur de partage:", err);
-                    window.open(pU, '_blank');
-                }
+                        await navigator.share({ files: [file], title: 'Photo' });
+                    } else { window.open(pU, '_blank'); }
+                } catch (err) { window.open(pU, '_blank'); }
             };
             tb.prepend(bt);
         }
     }
 
-    // --- CHARGEMENT ET RENDU ---
     fetch(_u).then(r => r.json()).then(data => {
         let nC = window.innerWidth <= 600 ? 1 : (window.innerWidth <= 1024 ? 2 : 4);
         const cols = Array.from({ length: nC }, () => {
@@ -153,6 +145,16 @@ document.addEventListener("DOMContentLoaded", function() {
                 startIndex: parseInt(t.dataset.index),
                 Toolbar: { display: ["close"] },
                 dragToClose: false,
+                Image: {
+                    wheel: "slide",
+                    click: false,
+                    doubleClick: false,
+                    fit: "contain"
+                },
+                Click: {
+                    content: false,
+                    backdrop: "close"
+                },
                 on: {
                     ready: fb => {
                         _lS();
