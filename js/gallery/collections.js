@@ -36,12 +36,17 @@ document.addEventListener("DOMContentLoaded", function() {
             b.className = 'insta-banner';
             b.innerHTML = "N'oublie pas d'identifier <b>@photography.by.arthur</b> !";
             
+            // On utilise Flexbox pour un centrage parfait et on fige la taille
             Object.assign(b.style, {
                 fontSize: '14px',
-                lineHeight: '50px',
                 height: '50px',
-                display: 'block',
-                transition: 'none'
+                padding: '0',
+                display: 'flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                textAlign: 'center',
+                transition: 'none',
+                boxSizing: 'border-box'
             });
             
             document.body.appendChild(b);
