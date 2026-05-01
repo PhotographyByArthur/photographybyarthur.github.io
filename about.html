@@ -19,55 +19,24 @@
 </head>
 <body>
     <div id="nav-placeholder"></div>
-    <header>
-        <h1>À propos</h1>
-    </header>
-    <main>
-        <section>
-            <h2>Qui suis-je ?</h2>
-            <p>
-                Je suis <strong>Arthur CONTAL</strong>, photographe amateur, passionné par le sport, la nature, les différents paysages ainsi que les animaux. 
-                J’ai pour volonté de capturer des instants et des scènes dans le but de donner du sens à des histoires. 
-                À travers ce site, je vous partage une sélection de mes clichés pris au fil du temps.
-            </p>
-        </section>
-        <section>
-            <h2>Ma vision et mon approche</h2>
-            <p>
-                La photographie est pour moi un moyen de raconter et de partager un instant. J’aime particulièrement jouer avec la lumière, les contrastes et les couleurs afin de révéler des émotions brutes et sincères. 
-                Chaque série de photos est pensée comme un univers, où l’esthétique et le ressenti priment sur tout le reste.
-                Mon but est de créer une connexion entre le sujet photographié et le spectateur, sans artifice superflu ou inutile. 
-                Toutes les images présentées sur ce site sont issues de projets personnels, capturées et post-traitées par mes soins, sans en déformer la réalité.
-            </p>
-        </section>
-        <section>
-            <h2>Pourquoi ce site ?</h2>
-            <p>
-                Ce site a été créé pour offrir un espace simple et sobre où mes photos peuvent vivre en dehors des réseaux sociaux. 
-                Il me permet de présenter mes rencontres dans un cadre que j’ai entièrement pensé et réalisé.
-                <strong>De nouveaux projets y seront ajoutés au fil du temps.</strong>
-            </p>
-        </section>
-        <section>
-            <h2>Me contacter</h2>
-            <p>
-                Ce site n’a pas vocation commerciale, mais je reste toujours ouvert à discuter de projets, de collaborations artistiques ou d’idées créatives. 
-                Tu peux me joindre pour toute question, demande d’information ou simple échange autour de la photographie :
-                <div class="about-instagram">
-                    <a href="https://www.instagram.com/photography.by.arthur/" target="_blank">
-                        <img src="/assets/icons/instagram.svg" alt="Instagram">
-                        <span>@photography.by.arthur</span>
-                    </a>
-                </div>
-            </p>
-        </section>
-    </main>
-    <footer>
-        © 2026 Photography by Arthur — Tous droits réservés | 
-        <a href="legal.html">Mentions légales & Politique de confidentialité</a>
-    </footer>
+
+    <script>
+        (function() {
+            var _content = "PGhlYWRlcj48aDE+w4AgcHJvcG9zPC9oMT48L2hlYWRlcj48bWFpbj48c2VjdGlvbj48aDI+UXVpIHN1aXMtamUgPzwvaDI+PHA+SmUgc3VpcyA8c3Ryb25nPkFydGh1ciBDT05UQUw8L3N0cm9uZz4sIHBob3RvZ3JhcGhlIGFtYXRldXIsIHBhc3Npb25uw6kgcGFyIGxlIHNwb3J0LCBsYSBuYXR1cmUsIGxlcyBkaWZmw6lyZW50cyBwYXlzYWdlcyBhaW5zaSBxdWUgbGVzIGFuaW1hdXguIErigJlhaSBwb3VyIHZvbG9udMOpIGRlIGNhcHR1cmVyIGRlcyBpbnN0YW50cyBldCBkZXMgc2PDqW5lcyBkYW5zIGxlIGJ1dCBkZSBkb25uZXIgZHUgc2VucyDDoCBkZXMgaGlzdG9pcmVzLiDDgCB0cmF2ZXJzIGNlIHNpdGUsIGplIHZvdXMgcGFydGFnZSB1bmUgc8OpbGVjdGlvbiBkZSBtZXMgY2xpY2jDqXMgcHJpcyBhdSBmaWwgZHUgdGVtcHMuPC9wPjwvc2V0Y3Rpb24+PHNlY3Rpb24+PGgyPk1hIHZpc2lvbiBldCBtb24gYXBwcm9jaGU8L2gyPjxwPkxhIHBob3RvZ3JhcGhpZSBlc3QgcG91ciBtb2kgdW4gbW95ZW4gZGUgcmFjb250ZXIgZXQgZGUgcGFydGFnZXIgdW4gaW5zdGFudC4gSuKAmWFpbWUgcGFydGljdWxpw6hyZW1lbnQgam91ZXIgYXZlYyBsYSBsdW1pw6hyZSwgbGVzIGNvbnRyYXN0ZXMgZXQgbGVzIGNvdWxldXJzIGFmaW4gZGU rZXZlbGVyIGRlcyDDqW1vdGlvbnMgYnJ1dGVzIGV0IHNpbmPDqHJlcy4gQ2hhcXVlIHPDqXJpZSBkZSBwaG90b3MgZXN0IHBlbnPDqWUgY29tbWUgdW4gdW5pdmVycywgb8O5IGzigJllc3Row6l0aXF1ZSBldCBsZSByZXNzZW50aSBwcmltZW50IHN1ciB0b3V0IGxlIHJlc3RlLiBNb24gYnV0IGVzdCBkZSBjcsOpZXIgdW5lIGNvbm5leGlvbiBlbnRyZSBsZSBzdWpldCBwaG90b2dyYXBoacOpIGV0IGxlIHNwZWN0YXRldXIsIHNhbnMgYXJ0aWZpY2Ugc3VwZXJmbHUgb3UgaW51dGlsZS4gVG91dGVzIGxlcyBpbWFnZXMgcHLDqXNlbnTDqWVzIHN1ciBjZSBzaXRlIHNvbnQgaXNzdWVzIGRlIHByb2pldHMgcGVyc29ubmVscywgY2FwdHVyw6llcyBldCBwb3N0LXRyYWl0w6llcyBwYXIgbWVzIHNvaW5zLCBzYW5zIGVuIGTDqWZvcm1lciBsYSByw6lhbGl0w6UuPC9wPjwvc2V0Y3Rpb24+PHNlY3Rpb24+PGgyPlBvdXJxdW9pIGNlIHNpdGUgPzwvaDI+PHA+Q2Ugc2l0ZSBhIMOpdMOpIGNyw6nDqSBwb3VyIG9mZnJpciB1biBlc3BhY2Ugc2ltcGxlIGV0IHNvYnJlIG/DuSBtZXMgcGhvdG9zIHBldXZlbnQgdml2cmUgZW4gZGVob3JzIGRlcyByw6lzZWF1eCBzb2NpYXV4LiBpbCBtZSBwZXJtZXQgZGUgcHLDqXNlbnRlciBtZXMgcmVuY29udHJlcyBkYW5zIHVuIGNhZHJlIHF1ZSBq4oCZYWkgZW50acOocmVtZW50IHBlbnPDqSBldCByw6lhbGlzw6kuIDxzdHJvbmc+RGUgbm91dmVhdXggcHJvamV0cyB5IHNlcm9udCBham91dMOpcyBhdSBmaWwgZHUgdGVtcHMuPC9zdHJvbmc+PC9wPjwvc2V0Y3Rpb24+PHNlY3Rpb24+PGgyPk1lIGNvbnRhY3RlcjwvaDI+PHA+Q2Ugc2l0ZSBu4oCZYSBwYXMgdm9jYXRpb24gY29tbWVyY2lhbGUsIG1haXMgamUgcmVzdGUgdG91am91cnMgb3V2ZXJ0IMOgIGRpc2N1dGVyIGRlIHByb2pldHMsIGRlIGNvbGxhYm9yYXRpb25zIGFydGlzdGlxdWVzIG91IGTigJlpZMOpZXMgY3LDqWF0aXZlcy4gVHUgcGV1eCBtZSBqb2luZHJlIHBvdXIgdG91dGUgcXVlc3Rpb24sIGRlbWFuZGUgZOKAmWluZm9ybWF0aW9uIG91IHNpbXBsZSDDqWNoYW5nZSBhdXRvdXIgZGUgbGEgcGhvdG9ncmFwaGllIDogPGRpdiBjbGFzcz0iYWJvdXQtaW5zdGFncmFtIj48YSBocmVmPSJodHRwczovL3d3dy5pbnN0YWdyYW0uY29tL3Bob3RvZ3JhcGh5LmJ5LmFydGh1ci8iIHRhcmdldD0iX2JsYW5rIj48aW1nIHNyYz0iL2Fzc2V0cy9pY29ucy9pbnN0YWdyYW0uc3ZnIiBhbHQ9Ikluc3RhZ3JhbSI+PHNwYW4+QHBob3RvZ3JhcGh5LmJ5LmFydGh1ciA8L3NwYW4+PC9hPjwvZGl2PjwvcD48L3NlY3Rpb24+PC9tYWluPjxmb290ZXI+wqkgMjAyNiBQaG90b2dyYXBoeSBieSBBcnRodXIg4oCUIFRvdXMgZHJvaXRzIHLDqXNlcnbDqXMgfCA8YSBocmVmPSJsZWdhbC5odG1sIj5NZW50aW9ucyBsw6lnYWxlcyAmIFBvbGl0aXF1ZSBkZSBjb25maWRlbnRpYWxpdMOpPC9hPjwvZm9vdGVyPg==";
+
+            function b64DecodeUnicode(str) {
+                return decodeURIComponent(atob(str).split('').map(function(c) {
+                    return '%' + ('00' + c.charCodeAt(0).toString(16)).slice(-2);
+                }).join(''));
+            }
+
+            document.write(b64DecodeUnicode(_content));
+        })();
+    </script>
+
     <script src="/js/shared/script.js"></script>
     <script src="/js/shared/cookies.js"></script>
     <script src="/js/shared/theme.js" defer></script>
 </body>
 </html>
+

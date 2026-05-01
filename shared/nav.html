@@ -1,54 +1,45 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-    <title>Photography by Arthur</title>
-    <script>
-        document.addEventListener("DOMContentLoaded", () => {
-            const icon = document.getElementById("theme-icon");
-            if (localStorage.getItem("theme") === "dark") {
-                document.documentElement.classList.add("dark-mode");
-                if (icon) {
-                    icon.src = "/assets/icons/theme-dark.svg";
-                    icon.alt = "Mode sombre";
-                }
-            }
-        });
-    </script>
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&family=Roboto:wght@400&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="/css/shared/variables.css">
-    <link rel="stylesheet" href="/css/shared/style.css">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Photography by Arthur</title>
+<script>(function(){var _0x1="dark-mode",_0x2="theme",_0x3="theme-dark.svg",_0x4="Mode sombre";document.addEventListener("DOMContentLoaded",function(){var _0x5=document.getElementById("theme-icon");if(localStorage.getItem(_0x2)==="dark"){document.documentElement.classList.add(_0x1);if(_0x5){_0x5.src="/assets/icons/"+_0x3;_0x5.alt=_0x4}}})})();</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;700&family=Roboto:wght@400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/css/shared/variables.css">
+<link rel="stylesheet" href="/css/shared/style.css">
 </head>
 <body>
-    <nav>
-        <ul>
-            <li><a href="/index.html">Accueil</a></li>
-            <li>
-                <a class="no-click">Galerie ▾</a>
-                <ul>
-                    <li><a href="/gallery/categories/sport.html">Performance sans limites</a></li>
-                </ul>
-            </li>
-            <li><a href="/about.html">À propos</a></li>
-        </ul>
-        <button id="toggle-theme" aria-label="Basculer mode clair/sombre">
-            <img id="theme-icon" src="/assets/icons/theme-light.svg" alt="Mode clair">
-        </button>
-    </nav>
-
-    <div id="cookie-banner" class="cookie-banner">
-        <p>Ce site utilise des cookies à des fins de mesure d’audience. Acceptez-vous ?</p>
-        <div class="cookie-buttons">
-            <button id="accept-cookies">Accepter</button>
-            <button id="decline-cookies">Refuser</button>
-        </div>
-    </div>
-
-    <script src="/js/shared/script.js"></script>
-    <script src="/js/shared/cookies.js"></script>
-    <script src="/js/shared/theme.js" defer></script>
+<nav>
+<ul>
+<li><a href="/index.html">Accueil</a></li>
+<li>
+<a class="no-click">Galerie ▾</a>
+<ul>
+<li><a href="/gallery/categories/sport.html">Performance sans limites</a></li>
+<li><a href="/gallery/collections/animaux.html">Le monde animal</a></li>
+<li><a href="/gallery/collections/aerien.html">Entre ciel et terre</a></li>
+<li><a href="/gallery/collections/paysage.html">Paysages d’évasion</a></li>
+<li><a href="/gallery/collections/urbain.html">Chroniques citadines</a></li>
+</ul>
+</li>
+<li><a href="/about.html">À propos</a></li>
+</ul>
+<button id="toggle-theme" aria-label="Basculer mode clair/sombre">
+<img id="theme-icon" src="/assets/icons/theme-light.svg" alt="Mode clair">
+</button>
+</nav>
+<div id="cookie-banner">
+<p>Ce site utilise des cookies à des fins de mesure d’audience. Acceptez-vous ?</p>
+<div class="cookie-buttons">
+<button id="accept-cookies">Accepter</button>
+<button id="decline-cookies">Refuser</button>
+</div>
+</div>
+<script src="/js/shared/script.js"></script>
+<script src="/js/shared/cookies.js"></script>
+<script src="/js/shared/theme.js" defer></script>
 </body>
 </html>
