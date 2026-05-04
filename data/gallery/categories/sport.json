@@ -35,7 +35,7 @@
     "link": "/gallery/collections/esh-rcsb.html",
     "size": "medium"
   },
-    {
+  {
     "title": "ES Heillecourt / GS Haroué Benney",
     "category": "football",
     "label": "Journée 17 - Séniors régional 2",
@@ -43,5 +43,14 @@
     "image": "/assets/images/gallery/categories/sport/esh-gshb.webp",
     "link": "/maintenance.html",
     "size": "large"
+  },
+  {
+    "title": "ES Heillecourt / COS Villers",
+    "category": "football",
+    "label": "Journée 6 - U15 interdistricts",
+    "date": "2026-05-02",
+    "image": "/assets/images/gallery/categories/sport/esh-cosv.webp",
+    "link": "/gallery/collections/esh-cosv.html",
+    "size": "medium"
   }
 ]
