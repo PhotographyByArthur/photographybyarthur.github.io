@@ -61,5 +61,14 @@
     "image": "/assets/images/gallery/categories/sport/esh-assm.webp",
     "link": "/gallery/collections/esh-assm.html",
     "size": "large"
+  },
+    {
+    "title": "ES Heillecourt / ES Bayon Roville",
+    "category": "football",
+    "label": "1/2 finales coupe U18 - U18 interdistricts",
+    "date": "2026-05-14",
+    "image": "/assets/images/gallery/categories/sport/esh-esbr.webp",
+    "link": "/gallery/collections/esh-esbr.html",
+    "size": "large"
   }
 ]
