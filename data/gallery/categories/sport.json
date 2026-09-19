@@ -1,12 +1,21 @@
 [
 {
+    "title": "AS Nancy Lorraine / FC Metz",
+    "category": "football",
+    "label": "Journée 3 - U18 régional 1 féminines",
+    "date": "2026-09-19",
+    "image": "/assets/images/gallery/categories/sport/asnl-fcm.webp",
+    "link": "/gallery/collections/asnl-fcm.html",
+    "size": "large"
+  },  
+{
     "title": "FC Nancy / GS Haroué Benney",
     "category": "football",
     "label": "Tour 3 - coupe de France - Séniors",
     "date": "2026-09-13",
     "image": "/assets/images/gallery/categories/sport/fcn-gshb.webp",
     "link": "/gallery/collections/fcn-gshb.html",
-    "size": "large"
+    "size": "medium"
   },
   {
     "title": "FC Lunéville / ES Golbey",
