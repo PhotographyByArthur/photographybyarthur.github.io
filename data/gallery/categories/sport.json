@@ -1,5 +1,14 @@
 [
 {
+    "title": "AS Ludres / ESTAC Troyes",
+    "category": "football",
+    "label": "Journée 4 - U16 régional 1",
+    "date": "2026-09-26",
+    "image": "/assets/images/gallery/categories/sport/asl-estac.webp",
+    "link": "/gallery/collections/asl-estac.html",
+    "size": "medium"
+  },  
+  {
     "title": "AS Nancy Lorraine / FC Metz",
     "category": "football",
     "label": "Journée 3 - U18 régional 1 féminines",
