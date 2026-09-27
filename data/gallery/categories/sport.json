@@ -1,5 +1,14 @@
 [
-{
+  {
+    "title": "Omnisports Frouard Pompey / FC Eloyes",
+    "category": "football",
+    "label": "Tour 4 - coupe de France - Séniors",
+    "date": "2026-09-27",
+    "image": "/assets/images/gallery/categories/sport/ofp-fce.webp",
+    "link": "/gallery/collections/ofp-fce.html",
+    "size": "large"
+  },  
+  {
     "title": "AS Ludres / ESTAC Troyes",
     "category": "football",
     "label": "Journée 4 - U16 régional 1",
@@ -17,7 +26,7 @@
     "link": "/gallery/collections/asnl-fcm.html",
     "size": "large"
   },  
-{
+  {
     "title": "FC Nancy / GS Haroué Benney",
     "category": "football",
     "label": "Tour 3 - coupe de France - Séniors",
